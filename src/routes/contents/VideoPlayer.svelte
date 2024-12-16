@@ -1,11 +1,11 @@
 <script>
     // Import video file
-    import rd from './rd.mp4';
+    import rd from './rd2.mp4';
   </script>
   
   <style>
     .video-container {
-      height: 50vh; /* Full viewport height */
+      height: 85vh; /* Full viewport height */
       overflow: hidden; /* Prevent overflow in x and y directions */
       position: relative;
     }
@@ -35,19 +35,29 @@
   
     /* Responsive styles */
     @media (max-width: 768px) {
-      .overlay-content {
-        flex-direction: column; /* Stack items vertically */
-        gap: 20px; /* Reduce spacing */
-        text-align: center; /* Center text for smaller screens */
-        padding: 10px; /* Reduce padding */
-      }
+    .background-video {
+      width: 200%; /* Ensure the video scales to fit the mobile width */
+      height: auto; /* Maintain aspect ratio */
     }
-  
-    @media (max-width: 480px) {
-      .overlay-content {
-        font-size: 14px; /* Adjust font size for better readability */
-      }
+
+    .overlay-content {
+      flex-direction: column; /* Stack items vertically */
+      gap: 20px; /* Reduce spacing */
+      text-align: center; /* Center text for smaller screens */
+      padding: 10px; /* Reduce padding */
     }
+  }
+
+  @media (max-width: 480px) {
+    .background-video {
+      width: 200%; /* Ensure the video scales to fit the mobile width */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .overlay-content {
+      font-size: 14px; /* Adjust font size for better readability */
+    }
+  }
   </style>
   
   

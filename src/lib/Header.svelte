@@ -1,11 +1,31 @@
 <script>
-    import { page } from "$app/stores";
+    import { page } from '$app/stores';
+    import { onMount, onDestroy } from 'svelte';
+    import { browser } from '$app/environment'; // Import browser check
     let isMenuOpen = false;
 
-    const toggleMenu = () => {
-        isMenuOpen = !isMenuOpen;
+    const handleClickOutside = (event) => {
+        const nav = document.querySelector('nav');
+        const hamburger = document.querySelector('.hamburger');
+        if (isMenuOpen && !nav.contains(event.target) && !hamburger.contains(event.target)) {
+            isMenuOpen = false;
+        }
     };
+
+    // Add event listeners only on the client side
+    onMount(() => {
+        if (browser) {
+            document.addEventListener('click', handleClickOutside);
+        }
+    });
+
+    onDestroy(() => {
+        if (browser) {
+            document.removeEventListener('click', handleClickOutside);
+        }
+    });
 </script>
+
 
 <header>
     <div class="corner">
@@ -16,18 +36,18 @@
             />
         </a>
     </div>
-
+    <!-- Hamburger icon -->
     <button
         class="hamburger"
-        aria-label="Toggle navigation"
-        on:click={toggleMenu}
+        aria-label="Toggle menu"
+        on:click={() => (isMenuOpen = !isMenuOpen)}
     >
         <span></span>
         <span></span>
         <span></span>
     </button>
-
-    <nav class={isMenuOpen ? "open" : ""}>
+    <!-- Navigation menu -->
+    <nav class:open={isMenuOpen}>
         <ul>
             <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
                 <a href="/">Home</a>
@@ -79,62 +99,61 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        background-color: transparent;
+        background-color: black;
         color: white;
-        border-bottom: 2px solid white; 
-        backdrop-filter: blur(500px);
+        border-bottom: 2px solid white;
+        position: relative;
     }
 
     .corner img {
-        width: 35%;
+        width: 40%;
         height: auto;
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
+    /* Hamburger menu button */
     .hamburger {
-        display: none;
+        display: none; /* Hidden on larger screens */
         flex-direction: column;
         justify-content: space-around;
         width: 30px;
         height: 25px;
-        background: none;
+        background: transparent;
         border: none;
         cursor: pointer;
+        z-index: 1001;
     }
-
     .hamburger span {
-        width: 20px;
+        display: block;
+        width: 200%;
         height: 3px;
-        background-color: white;
+        background: white;
         border-radius: 2px;
+        transition: all 0.3s ease-in-out;
     }
 
+    /* Navigation menu */
     nav {
-        display: flex;
+        display: flex; /* Always visible on larger screens */
         align-items: center;
     }
 
     nav ul {
-        padding: 0;
-        margin: 0;
-        display: flex;
         list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
         gap: 25px;
-        font-size: larger;
-        font-weight: bold;
-    }
-
-    nav ul li {
-        margin-right: 20px;
     }
 
     nav ul li a {
-        color: white;
         text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
     }
 
     nav ul li[aria-current="page"] a {
-        font-weight: bold;
         color: aqua;
     }
 
@@ -142,48 +161,29 @@
         color: #0d92f4;
     }
 
-    /* Mobile Styles */
+    /* Responsive Behavior */
     @media (max-width: 768px) {
         .hamburger {
-            display: flex;
+            display: flex; /* Show hamburger icon on small screens */
         }
-
         nav {
-            position: absolute;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            /* border-left: 2px solid white; */
-            width: 100%;
-            padding: 30px;
+            display: none; /* Hide the navigation menu by default on small screens */
             flex-direction: column;
-            align-items: flex-start;
-            display: none;
-            text-align: center;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
         }
-
         nav.open {
-            display: flex;
-            width: 80%;
+            display: flex; /* Show the menu when toggled */
         }
-
         nav ul {
             flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-
-        nav ul li {
-            margin: 0;
-            /* width: 100%; */
-            text-align: center;
-        }
-
-        nav ul li a {
-            display: block;
-            width: 100%;
-            padding: 10px 0;
+            align-items: center;
+            gap: 15px;
         }
     }
 </style>
