@@ -1,5 +1,5 @@
 <script>
-    import Blog from '../contents/Blogs.svelte';
+    import Blog from '../contents/Blog.svelte';
     import chapter1 from '../contents/blogs/ch1.md'
 
     const blogs = [
