@@ -106,7 +106,7 @@
     }
 
     .corner img {
-        width: 40%;
+        width: 20%;
         height: auto;
         margin-left: 10px;
     }
