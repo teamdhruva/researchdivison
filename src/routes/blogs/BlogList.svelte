@@ -167,8 +167,8 @@
 
   @media (max-width: 480px) {
     .blog-card {
-      flex: 0 0 calc(100% - 20px);
-      max-width: 100%;
+      flex: 0 0 calc(80% - 20px);
+      max-width: 80%;
     }
   }
 </style>

@@ -57,7 +57,7 @@
         }
 
         .image-container img {
-            max-width: 100%; /* Allow images to shrink further */
+            max-width: 30%; /* Allow images to shrink further */
         }
     }
 
@@ -71,7 +71,7 @@
         }
 
         .image-container {
-            flex-direction: column; /* Stack images vertically */
+            flex-direction: row; 
         }
     }
 </style>

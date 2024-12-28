@@ -134,7 +134,7 @@
 
     /* Navigation menu */
     nav {
-        display: flex; /* Always visible on larger screens */
+        display: flex; 
         align-items: center;
     }
 
@@ -152,7 +152,6 @@
         font-size: 1rem;
         font-weight: bold;
     }
-
     nav ul li[aria-current="page"] a {
         color: aqua;
     }
