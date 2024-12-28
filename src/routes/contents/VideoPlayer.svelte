@@ -1,78 +1,79 @@
 <script>
-    // Import video file
-    import rd from './rd2.mp4';
-  </script>
-  
-  <style>
-    .video-container {
-      height: 85vh; /* Full viewport height */
-      overflow: hidden; /* Prevent overflow in x and y directions */
-      position: relative;
-    }
-  
-    .background-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100vw; /* Ensure video fills the viewport width */
-      height: 100vh; /* Ensure video fills the viewport height */
-      object-fit: cover; /* Ensures video covers the container without overflow */
-      transform: translate(-50%, -50%); /* Center the video */
-      z-index: -1; /* Send video behind overlay content */
-    }
-  
-    .overlay-content {
-      display: flex;
-      flex-direction: row;
-      position: relative; /* For overlay content positioning */
-      color: white; /* Text color */
-      text-align: left;
-      z-index: 1; /* Bring overlay content above video */
-      padding: 20px;
-      font-weight: bold;
-      gap: 200px; /* Space between items */
-    }
-  
-    /* Responsive styles */
-    @media (max-width: 768px) {
-    .background-video {
-      width: 200%; /* Ensure the video scales to fit the mobile width */
-      height: auto; /* Maintain aspect ratio */
-    }
+  import laptop from "./laptop.mp4";
+  import mobile from "./mobile.mp4";
+  import { onMount } from "svelte";
 
+  let videoSrc = laptop; // Default video source
+
+  const updateVideoSrc = () => {
+    videoSrc = window.innerWidth <= 768 ? mobile : laptop;
+  };
+
+  onMount(() => {
+    updateVideoSrc(); // Set initial video source
+    window.addEventListener("resize", updateVideoSrc); // Update on screen resize
+
+    return () => {
+      window.removeEventListener("resize", updateVideoSrc); // Cleanup event listener
+    };
+  });
+</script>
+
+<div class="video-container">
+  <video autoplay muted class="background-video" aria-hidden="true">
+    <source src={videoSrc} type="video/mp4" />
+    <p>Your browser does not support the video tag. Please update your browser.</p>
+  </video>
+  <div class="overlay-content">
+    <!-- Add overlay content here -->
+  </div>
+</div>
+
+<style>
+  .video-container {
+    position: relative; /* Important for overlay positioning */
+    height: 85vh;
+    overflow: hidden; /* Prevents video overflow */
+  }
+
+  .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  .overlay-content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-align: left;
+    z-index: 1;
+    padding: 20px;
+    font-weight: bold;
+    gap: 200px;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
     .overlay-content {
-      flex-direction: column; /* Stack items vertically */
-      gap: 20px; /* Reduce spacing */
-      text-align: center; /* Center text for smaller screens */
-      padding: 10px; /* Reduce padding */
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+      padding: 10px;
     }
   }
 
   @media (max-width: 480px) {
-    .background-video {
-      width: 200%; /* Ensure the video scales to fit the mobile width */
-      height: auto; /* Maintain aspect ratio */
-    }
-
     .overlay-content {
-      font-size: 14px; /* Adjust font size for better readability */
+      font-size: 14px;
     }
   }
-  </style>
-  
-  
-  <div class="video-container">
-    <video
-      autoplay
-      muted
-      class="background-video"
-    >
-      <source src={rd} type="video/mp4" />
-      <source src="path/to/your/video.webm" type="video/webm" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay-content">
-      <!-- Add overlay content here -->
-    </div>
-  </div>
-  
+</style>

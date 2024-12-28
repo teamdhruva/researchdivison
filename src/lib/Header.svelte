@@ -163,6 +163,10 @@
 
     /* Responsive Behavior */
     @media (max-width: 768px) {
+        .corner img {
+            width: 40%;
+            margin-left: 0;
+        }
         .hamburger {
             display: flex; /* Show hamburger icon on small screens */
         }

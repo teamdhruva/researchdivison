@@ -9,40 +9,21 @@
         flex-direction: column;
         align-items: center;
         text-align: center; /* Align text and images center */
+        padding: 20px; /* Add padding for better layout */
     }
-  
-    .Head {
+
+    .Head, .vision {
         color: #007bff; /* Blue color */
         font-size: 24px; /* Font size */
         font-weight: bold; /* Bold text */
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Shadow for depth */
         letter-spacing: 1px; /* Spacing between letters */
         line-height: 1.5; /* Line height */
+        margin: 10px 0; /* Add spacing between sections */
     }
-  
-    .Text {
-        padding-left: 20px;
-        justify-content: center;
-        font-size: 18px;
-        color: white;
-        font-weight: bold;
-        letter-spacing: 1px; /* Spacing between letters */
-        line-height: 1.5; /* Line height */
-    }
-  
-    .vision {
-        color: #007bff; /* Blue color */
-        font-size: 24px; /* Font size */
-        font-weight: bold; /* Bold text */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Shadow for depth */
-        letter-spacing: 1px; /* Spacing between letters */
-        line-height: 1.5; /* Line height */
-    }
-  
-    .vision-text {
-        display: flex;
-        flex-direction: column;
-        padding-left: 20px;
+
+    .Text, .vision-text {
+        padding: 10px; /* Adjust padding for smaller screens */
         justify-content: center;
         font-size: 18px;
         color: white;
@@ -53,16 +34,45 @@
 
     .image-container {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap; /* Allow images to wrap to the next line */
+        justify-content: center; /* Center align images */
         margin: 20px 0;
-        text-align: center;
+        gap: 10px; /* Add space between images */
     }
 
     .image-container img {
         width: 100%; /* Make the image responsive */
-        max-width: 500px; /* You can adjust the max width */
-        height: 50%;
+        max-width: 300px; /* Adjust max width for images */
+        height: auto; /* Maintain aspect ratio */
         border-radius: 8px; /* Optional: Add rounded corners */
+    }
+
+    @media (max-width: 768px) {
+        .Head, .vision {
+            font-size: 20px; /* Reduce font size for smaller screens */
+        }
+
+        .Text, .vision-text {
+            font-size: 16px; /* Adjust font size */
+        }
+
+        .image-container img {
+            max-width: 100%; /* Allow images to shrink further */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .Head, .vision {
+            font-size: 18px; /* Further reduce font size for very small screens */
+        }
+
+        .Text, .vision-text {
+            font-size: 14px; /* Adjust font size */
+        }
+
+        .image-container {
+            flex-direction: column; /* Stack images vertically */
+        }
     }
 </style>
 
