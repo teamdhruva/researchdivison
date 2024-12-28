@@ -68,7 +68,7 @@
   }
 
   .back-btn {
-    background-color: #ff5722;
+    background-color: #007bff;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -80,7 +80,7 @@
   }
 
   .back-btn:hover {
-    background-color: #e64a19;
+    background-color: #0056b3;
   }
 
   .blog-header {

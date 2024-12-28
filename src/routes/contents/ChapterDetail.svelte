@@ -53,7 +53,7 @@
   }
 
   .nav-btn {
-    background-color: #ff5722;
+    background-color: #007bff;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -64,19 +64,7 @@
   }
 
   .nav-btn:hover {
-    background-color: #e64a19;
-  }
-
-  .chapter-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .chapter-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ffab40; /* Highlighted title color */
-    margin-bottom: 10px;
+    background-color: #0056b3;
   }
 
   .chapter-content {
@@ -99,9 +87,6 @@
   }
 
   @media (max-width: 768px) {
-    .chapter-title {
-      font-size: 1.8rem;
-    }
 
     .markdown-content {
       font-size: 1rem;
@@ -109,10 +94,6 @@
   }
 
   @media (max-width: 480px) {
-    .chapter-title {
-      font-size: 1.5rem;
-    }
-
     .markdown-content {
       font-size: 0.9rem;
     }

@@ -40,7 +40,7 @@
   {
     id: 3,
     title: "Beyond Earth Among The Stars",
-    author: "manohara",
+    author: "Adithya and Manohara",
     description: "Delve into advanced Space concepts.",
     chapters: [
       ],
