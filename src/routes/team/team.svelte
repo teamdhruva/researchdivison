@@ -20,7 +20,7 @@
     import Shrirang from "$lib/ResearchTeam/Shrirang.jpeg" 
     import Shrish from "$lib/ResearchTeam/Shrish.jpeg" 
     import Vibha from "$lib/ResearchTeam/Vibha.jpeg" 
-    import Amruta from "$lib/ResearchTeam/Amrutha.jpeg" 
+    import Amrutha from "$lib/ResearchTeam/Amrutha.jpeg" 
   
     const members = [
       { name: "Krishna", role: "Captain", image: Krishna },
@@ -44,7 +44,7 @@
       { name: "Vibha", role: "Member", image: Vibha },
       { name: "Shrish", role: "Member", image: Shrish },
       { name: "Aneesh", role: "Member", image: Aneesh },
-      { name: "Amruta", role: "Member", image: Amruta },
+      { name: "Amrutha", role: "Member", image: Amrutha },
 
       // Add more members as needed
     ];
