@@ -47,7 +47,7 @@ Around 40 years ago, NASA released one of the most surreal photos of an actual a
 <div style="text-align: center;">
   <img src="https://www.nasa.gov/wp-content/uploads/2024/02/s84-27018orig.jpg?resize=2000,2000" alt="Bruce" style="width:300px; height:auto;">
   <br>
-Fig.3 Mercury's southern hemisphere as seen during Mariner 10 flybys.
+Fig.4 Astronaut Bruce Mccandless performs the first uncharted spacewalk
 </div>
 <br>
 

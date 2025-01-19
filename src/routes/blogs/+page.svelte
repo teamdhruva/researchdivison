@@ -17,7 +17,7 @@
     description: "Countdown…T minus…3…2…1 and you are now in for a trip down the memory lane that will make you admire the efforts and brilliance that has gone into the space exploration missions.",
     chapters: [
       { id: 1, title: "Cruising into the unexplored (1940-1960)", markdown: blog1chapter1 },
-      { id: 2, title: "Tryst with Moon(1960-1970)", markdown: blog1chapter2 },
+      { id: 2, title: "Tryst with Moon (1960-1970)", markdown: blog1chapter2 },
       { id: 3, title: "Understanding our neighbours better (1970-90)", markdown: blog1chapter3 },
       // { id: 4, title: "A harbour to sail in the stellar winds (1990-2000)", markdown: blog1chapter4 },
       // { id: 5, title: "Current Affairs (2000-2024)", markdown: blog1chapter5 },
