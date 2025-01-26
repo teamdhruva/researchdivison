@@ -22,9 +22,9 @@
       { id: 4, title: "A harbour to sail in the stellar winds (1990-2000)", markdown: blog1chapter4 },
       // { id: 5, title: "Current Affairs (2000-2024)", markdown: blog1chapter5 },
     ],
-    nextChapterDate: "26-01-2025",
+    nextChapterDate: "01-02-2025",
     image:Blog1,
-    lastUpdated:'19-1-2024',
+    lastUpdated:'26-1-2024',
   },
   {
     id: 2,
