@@ -24,7 +24,7 @@
     ],
     nextChapterDate: "01-02-2025",
     image:Blog1,
-    lastUpdated:'26-1-2024',
+    lastUpdated:'26-01-2024',
   },
   {
     id: 2,
